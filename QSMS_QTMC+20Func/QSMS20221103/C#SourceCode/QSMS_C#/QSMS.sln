@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSMS_CSharp", "QSMS\QSMS_CSharp.csproj", "{67E0C169-A0A2-44ED-8390-755637CB7C6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterLib", "PrinterLib\PrinterLib.csproj", "{3F686617-34E7-4821-B0E9-2BD592E98375}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{0D3DBCD6-4BA4-4D94-A778-A72D0E44D497}"
+	ProjectSection(SolutionItems) = preProject
+		DLL\PrinterLib.dll = DLL\PrinterLib.dll
+		DLL\QMSSDK.dll = DLL\QMSSDK.dll
+		DLL\QuantaSDK.DB.dll = DLL\QuantaSDK.DB.dll
+		DLL\QuantaSDK.Excel.dll = DLL\QuantaSDK.Excel.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SccProjectUniqueName1 = PrinterLib\\PrinterLib.csproj
+		SccProjectName1 = \u0022$/SMT_TFS/SMT/QSMS/PrinterLib\u0022,\u0020FUDQBAAA
+		SccLocalPath1 = PrinterLib
+		SccProjectUniqueName2 = QSMS\\QSMS_CSharp.csproj
+		SccProjectName2 = \u0022$/SMT_TFS/SMT/QSMS/QSMS\u0022,\u0020RUDQBAAA
+		SccLocalPath2 = QSMS
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67E0C169-A0A2-44ED-8390-755637CB7C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E0C169-A0A2-44ED-8390-755637CB7C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E0C169-A0A2-44ED-8390-755637CB7C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E0C169-A0A2-44ED-8390-755637CB7C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F686617-34E7-4821-B0E9-2BD592E98375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F686617-34E7-4821-B0E9-2BD592E98375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F686617-34E7-4821-B0E9-2BD592E98375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F686617-34E7-4821-B0E9-2BD592E98375}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

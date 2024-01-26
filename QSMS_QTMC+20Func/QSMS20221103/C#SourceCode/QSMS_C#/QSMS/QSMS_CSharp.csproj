@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67E0C169-A0A2-44ED-8390-755637CB7C6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QSMS</RootNamespace>
+    <AssemblyName>QSMS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PrinterLib">
+      <HintPath>..\DLL\PrinterLib.dll</HintPath>
+    </Reference>
+    <Reference Include="QMSSDK">
+      <HintPath>..\DLL\QMSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantaSDK.DB">
+      <HintPath>..\DLL\QuantaSDK.DB.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantaSDK.Excel">
+      <HintPath>..\DLL\QuantaSDK.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BrLibrary\PublicFunction.cs" />
+    <Compile Include="DbLibrary\DbLogin.cs" />
+    <Compile Include="DbLibrary\IPQC\IPQCProcess.cs" />
+    <Compile Include="DbLibrary\MCC\DeleteME_BOM.cs" />
+    <Compile Include="DbLibrary\MCC\DIDCheckStockProcess.cs" />
+    <Compile Include="DbLibrary\MCC\Extensions.cs" />
+    <Compile Include="DbLibrary\MCC\MCCPreMaterialProcess.cs" />
+    <Compile Include="DbLibrary\MCC\MCCProcess.cs" />
+    <Compile Include="DbLibrary\MCC\ModifyDIDTotalQty.cs" />
+    <Compile Include="DbLibrary\MCC\Print.cs" />
+    <Compile Include="DbLibrary\MCC\TransferPanaAMI.cs" />
+    <Compile Include="DbLibrary\MCC\UploadXLSehdeule.cs" />
+    <Compile Include="DbLibrary\PD\PDProcess.cs" />
+    <Compile Include="DbLibrary\PD\UnlinkFeederDID.cs" />
+    <Compile Include="DbLibrary\PD\VerifyFeederProcess.cs" />
+    <Compile Include="DbLibrary\PMC\PMCProcess.cs" />
+    <Compile Include="DbLibrary\PMC\QueryWOGroupProcess.cs" />
+    <Compile Include="DbLibrary\QMS\CompDiffProcess.cs" />
+    <Compile Include="DbLibrary\QMS\SetInterDIOProcess.cs" />
+    <Compile Include="DbLibrary\Report\BeforeHandCheckBom.cs" />
+    <Compile Include="DbLibrary\Report\PDReport.cs" />
+    <Compile Include="DbLibrary\Report\QueryCheckBOMProcess.cs" />
+    <Compile Include="DbLibrary\Report\QueryDID.cs" />
+    <Compile Include="DbLibrary\Report\QueryDIDNeedCutProcess.cs" />
+    <Compile Include="DbLibrary\Report\QueryReplacePN.cs" />
+    <Compile Include="DbLibrary\Report\ReportProcess.cs" />
+    <Compile Include="DbLibrary\Report\SendXLRemainDemand.cs" />
+    <Compile Include="DbLibrary\SpecialCase\CloseUnCheckWO.cs" />
+    <Compile Include="DbLibrary\SpecialCase\GenXLMaterialDemandProcess.cs" />
+    <Compile Include="DbLibrary\SpecialCase\SpecialCaseProcess.cs" />
+    <Compile Include="DbLibrary\SpecialCase\UpdateUID.cs" />
+    <Compile Include="DbLibrary\SpecialCase\UrgentDIDToWH.cs" />
+    <Compile Include="DbLibrary\SpecialCase\UrgentWO.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStartSplitLineMC.cs" />
+    <Compile Include="Parameter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramVersion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QSMS\frmPrinterSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\frmPrinterSetting.Designer.cs">
+      <DependentUpon>frmPrinterSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmInRelieve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmInRelieve.Designer.cs">
+      <DependentUpon>frmInRelieve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmInSpection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmInSpection.designer.cs">
+      <DependentUpon>frmInSpection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmInspection_Del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmInspection_Del.Designer.cs">
+      <DependentUpon>frmInspection_Del.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\IPQC\frmQuery.designer.cs">
+      <DependentUpon>frmQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\CompPNPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\CompPNPrint.Designer.cs">
+      <DependentUpon>CompPNPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmCompPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmCompPrint.designer.cs">
+      <DependentUpon>frmCompPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmDefineBuildType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmDefineBuildType.Designer.cs">
+      <DependentUpon>FrmDefineBuildType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmDeleteME_BOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmDeleteME_BOM.designer.cs">
+      <DependentUpon>FrmDeleteME_BOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmDIDCallBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmDIDCallBack.designer.cs">
+      <DependentUpon>FrmDIDCallBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmDIDCheckStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmDIDCheckStock.designer.cs">
+      <DependentUpon>frmDIDCheckStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmDIDInteGration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmDIDInteGration.designer.cs">
+      <DependentUpon>frmDIDInteGration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmInheritDIDByWO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmInheritDIDByWO.designer.cs">
+      <DependentUpon>frmInheritDIDByWO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmInput.designer.cs">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmInputBox.designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmMaintainDID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmMaintainDID.designer.cs">
+      <DependentUpon>frmMaintainDID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmMaintainDIDAutoDispatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmMaintainDIDAutoDispatch.designer.cs">
+      <DependentUpon>frmMaintainDIDAutoDispatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmMCCPreMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmMCCPreMaterial.designer.cs">
+      <DependentUpon>frmMCCPreMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmModifyDIDTotalQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmModifyDIDTotalQty.designer.cs">
+      <DependentUpon>FrmModifyDIDTotalQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmQryReturnedDID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmQryReturnedDID.designer.cs">
+      <DependentUpon>frmQryReturnedDID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmReturnComp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmReturnComp.designer.cs">
+      <DependentUpon>FrmReturnComp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmReturnDID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmReturnDID.designer.cs">
+      <DependentUpon>FrmReturnDID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmSingleSideBrdConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\FrmSingleSideBrdConfirm.Designer.cs">
+      <DependentUpon>FrmSingleSideBrdConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferDispatchDID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferDispatchDID.Designer.cs">
+      <DependentUpon>frmTransferDispatchDID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferFujiNexim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferFujiNexim.Designer.cs">
+      <DependentUpon>frmTransferFujiNexim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferFujiNexim_MI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferFujiNexim_MI.Designer.cs">
+      <DependentUpon>frmTransferFujiNexim_MI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferFujiXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferFujiXML.designer.cs">
+      <DependentUpon>frmTransferFujiXML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferPanaAMI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferPanaAMI.designer.cs">
+      <DependentUpon>frmTransferPanaAMI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferPanaMSF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmTransferPanaMSF.Designer.cs">
+      <DependentUpon>frmTransferPanaMSF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmUpLoadBom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmUpLoadBom.Designer.cs">
+      <DependentUpon>frmUpLoadBom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmUploadXLSehdeule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\frmUploadXLSehdeule.Designer.cs">
+      <DependentUpon>frmUploadXLSehdeule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\MCC\IC_Burn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\MCC\IC_Burn.Designer.cs">
+      <DependentUpon>IC_Burn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\frmChecKDID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\frmChecKDID.designer.cs">
+      <DependentUpon>frmChecKDID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\frmCloseWO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\frmCloseWO.designer.cs">
+      <DependentUpon>frmCloseWO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\FrmDIDBake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\FrmDIDBake.designer.cs">
+      <DependentUpon>FrmDIDBake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\frmMaintainFeeder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\frmMaintainFeeder.designer.cs">
+      <DependentUpon>frmMaintainFeeder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\FrmPNCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\FrmPNCompare.Designer.cs">
+      <DependentUpon>FrmPNCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\frmUnlinkFeederDID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\frmUnlinkFeederDID.designer.cs">
+      <DependentUpon>frmUnlinkFeederDID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\FrmUnlockCompPNCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\FrmUnlockCompPNCompare.Designer.cs">
+      <DependentUpon>FrmUnlockCompPNCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\frmUpdateRealQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\frmUpdateRealQty.designer.cs">
+      <DependentUpon>frmUpdateRealQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PD\frmVerifyFeeder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PD\frmVerifyFeeder.designer.cs">
+      <DependentUpon>frmVerifyFeeder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PMC\frmMaintainWOSeq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PMC\frmMaintainWOSeq.Designer.cs">
+      <DependentUpon>frmMaintainWOSeq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\PMC\frmQueryWOGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\PMC\frmQueryWOGroup.designer.cs">
+      <DependentUpon>frmQueryWOGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\QMS\frmCompDiff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\QMS\frmCompDiff.Designer.cs">
+      <DependentUpon>frmCompDiff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\QMS\frmSendXLRemainDemand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\QMS\frmSendXLRemainDemand.Designer.cs">
+      <DependentUpon>frmSendXLRemainDemand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\QMS\frmSetInterDIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\QMS\frmSetInterDIO.designer.cs">
+      <DependentUpon>frmSetInterDIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmBeforeHandCheckBom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmBeforeHandCheckBom.designer.cs">
+      <DependentUpon>frmBeforeHandCheckBom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmComppnReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmComppnReport.designer.cs">
+      <DependentUpon>frmComppnReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmDIDNoUsed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmDIDNoUsed.Designer.cs">
+      <DependentUpon>frmDIDNoUsed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryCheckBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryCheckBOM.designer.cs">
+      <DependentUpon>frmQueryCheckBOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryDID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryDID.Designer.cs">
+      <DependentUpon>frmQueryDID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryDIDNeedCut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryDIDNeedCut.designer.cs">
+      <DependentUpon>frmQueryDIDNeedCut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryReplacePN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmQueryReplacePN.designer.cs">
+      <DependentUpon>frmQueryReplacePN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmReport.designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\Report\frmTraceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\Report\frmTraceReport.designer.cs">
+      <DependentUpon>frmTraceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmGenXLMD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmGenXLMD.designer.cs">
+      <DependentUpon>frmGenXLMD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmStartSplitLineMC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmStartSplitLineMC.Designer.cs">
+      <DependentUpon>frmStartSplitLineMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUnChkWO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUnChkWO.Designer.cs">
+      <DependentUpon>frmUnChkWO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUpdateUID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUpdateUID.designer.cs">
+      <DependentUpon>frmUpdateUID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUrgentDIDToWH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUrgentDIDToWH.designer.cs">
+      <DependentUpon>frmUrgentDIDToWH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUrgentWO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QSMS\SpecialCase\frmUrgentWO.designer.cs">
+      <DependentUpon>frmUrgentWO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlHelper.cs" />
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QSMS\frmPrinterSetting.resx">
+      <DependentUpon>frmPrinterSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\IPQC\frmInRelieve.resx">
+      <DependentUpon>frmInRelieve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\IPQC\frmInSpection.resx">
+      <DependentUpon>frmInSpection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\IPQC\frmInspection_Del.resx">
+      <DependentUpon>frmInspection_Del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\IPQC\frmQuery.resx">
+      <DependentUpon>frmQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\CompPNPrint.resx">
+      <DependentUpon>CompPNPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmCompPrint.resx">
+      <DependentUpon>frmCompPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\FrmDefineBuildType.resx">
+      <DependentUpon>FrmDefineBuildType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\FrmDeleteME_BOM.resx">
+      <DependentUpon>FrmDeleteME_BOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\FrmDIDCallBack.resx">
+      <DependentUpon>FrmDIDCallBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmDIDCheckStock.resx">
+      <DependentUpon>frmDIDCheckStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmDIDInteGration.resx">
+      <DependentUpon>frmDIDInteGration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmInheritDIDByWO.resx">
+      <DependentUpon>frmInheritDIDByWO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmInput.resx">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmMaintainDID.resx">
+      <DependentUpon>frmMaintainDID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmMaintainDIDAutoDispatch.resx">
+      <DependentUpon>frmMaintainDIDAutoDispatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmMCCPreMaterial.resx">
+      <DependentUpon>frmMCCPreMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\FrmModifyDIDTotalQty.resx">
+      <DependentUpon>FrmModifyDIDTotalQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmQryReturnedDID.resx">
+      <DependentUpon>frmQryReturnedDID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\FrmReturnComp.resx">
+      <DependentUpon>FrmReturnComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\FrmReturnDID.resx">
+      <DependentUpon>FrmReturnDID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\FrmSingleSideBrdConfirm.resx">
+      <DependentUpon>FrmSingleSideBrdConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmTransferDispatchDID.resx">
+      <DependentUpon>frmTransferDispatchDID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmTransferFujiNexim.resx">
+      <DependentUpon>frmTransferFujiNexim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmTransferFujiNexim_MI.resx">
+      <DependentUpon>frmTransferFujiNexim_MI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmTransferFujiXML.resx">
+      <DependentUpon>frmTransferFujiXML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmTransferPanaAMI.resx">
+      <DependentUpon>frmTransferPanaAMI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmTransferPanaMSF.resx">
+      <DependentUpon>frmTransferPanaMSF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\frmUpLoadBom.resx">
+      <DependentUpon>frmUpLoadBom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\MCC\IC_Burn.resx">
+      <DependentUpon>IC_Burn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\frmChecKDID.resx">
+      <DependentUpon>frmChecKDID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\frmCloseWO.resx">
+      <DependentUpon>frmCloseWO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\FrmDIDBake.resx">
+      <DependentUpon>FrmDIDBake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\frmMaintainFeeder.resx">
+      <DependentUpon>frmMaintainFeeder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\FrmPNCompare.resx">
+      <DependentUpon>FrmPNCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\frmUnlinkFeederDID.resx">
+      <DependentUpon>frmUnlinkFeederDID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\FrmUnlockCompPNCompare.resx">
+      <DependentUpon>FrmUnlockCompPNCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\frmUpdateRealQty.resx">
+      <DependentUpon>frmUpdateRealQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PD\frmVerifyFeeder.resx">
+      <DependentUpon>frmVerifyFeeder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PMC\frmMaintainWOSeq.resx">
+      <DependentUpon>frmMaintainWOSeq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\PMC\frmQueryWOGroup.resx">
+      <DependentUpon>frmQueryWOGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\QMS\frmCompDiff.resx">
+      <DependentUpon>frmCompDiff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\QMS\frmSendXLRemainDemand.resx">
+      <DependentUpon>frmSendXLRemainDemand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\QMS\frmSetInterDIO.resx">
+      <DependentUpon>frmSetInterDIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmBeforeHandCheckBom.resx">
+      <DependentUpon>frmBeforeHandCheckBom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmComppnReport.resx">
+      <DependentUpon>frmComppnReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmDIDNoUsed.resx">
+      <DependentUpon>frmDIDNoUsed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmQueryCheckBOM.resx">
+      <DependentUpon>frmQueryCheckBOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmQueryDID.resx">
+      <DependentUpon>frmQueryDID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmQueryDIDNeedCut.resx">
+      <DependentUpon>frmQueryDIDNeedCut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmQueryReplacePN.resx">
+      <DependentUpon>frmQueryReplacePN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\Report\frmTraceReport.resx">
+      <DependentUpon>frmTraceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\SpecialCase\frmGenXLMD.resx">
+      <DependentUpon>frmGenXLMD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\SpecialCase\frmStartSplitLineMC.resx">
+      <DependentUpon>frmStartSplitLineMC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\SpecialCase\frmUnChkWO.resx">
+      <DependentUpon>frmUnChkWO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\SpecialCase\frmUpdateUID.resx">
+      <DependentUpon>frmUpdateUID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\SpecialCase\frmUrgentDIDToWH.resx">
+      <DependentUpon>frmUrgentDIDToWH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QSMS\SpecialCase\frmUrgentWO.resx">
+      <DependentUpon>frmUrgentWO.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

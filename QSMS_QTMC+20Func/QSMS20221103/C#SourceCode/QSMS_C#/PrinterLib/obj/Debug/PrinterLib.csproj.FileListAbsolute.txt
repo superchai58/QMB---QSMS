@@ -1,0 +1,15 @@
+D:\VSS\SMT_TFS\SMT\QSMS\PrinterLib\bin\Debug\PrinterLib.dll
+D:\VSS\SMT_TFS\SMT\QSMS\PrinterLib\bin\Debug\PrinterLib.pdb
+D:\VSS\SMT_TFS\SMT\QSMS\PrinterLib\obj\Debug\PrinterLib.csprojResolveAssemblyReference.cache
+D:\VSS\SMT_TFS\SMT\QSMS\PrinterLib\obj\Debug\PrinterLib.dll
+D:\VSS\SMT_TFS\SMT\QSMS\PrinterLib\obj\Debug\PrinterLib.pdb
+D:\superchai\TmpProgramForDev\PU9\QSMS_C#\PrinterLib\bin\Debug\PrinterLib.dll
+D:\superchai\TmpProgramForDev\PU9\QSMS_C#\PrinterLib\bin\Debug\PrinterLib.pdb
+D:\superchai\TmpProgramForDev\PU9\QSMS_C#\PrinterLib\obj\Debug\PrinterLib.csprojResolveAssemblyReference.cache
+D:\superchai\TmpProgramForDev\PU9\QSMS_C#\PrinterLib\obj\Debug\PrinterLib.dll
+D:\superchai\TmpProgramForDev\PU9\QSMS_C#\PrinterLib\obj\Debug\PrinterLib.pdb
+D:\superchai\TmpProgramForDev\PU9\QSMS\QSMS_QTMC+20Func\QSMS20221103\C#SourceCode\QSMS_C#\PrinterLib\bin\Debug\PrinterLib.dll
+D:\superchai\TmpProgramForDev\PU9\QSMS\QSMS_QTMC+20Func\QSMS20221103\C#SourceCode\QSMS_C#\PrinterLib\bin\Debug\PrinterLib.pdb
+D:\superchai\TmpProgramForDev\PU9\QSMS\QSMS_QTMC+20Func\QSMS20221103\C#SourceCode\QSMS_C#\PrinterLib\obj\Debug\PrinterLib.csprojResolveAssemblyReference.cache
+D:\superchai\TmpProgramForDev\PU9\QSMS\QSMS_QTMC+20Func\QSMS20221103\C#SourceCode\QSMS_C#\PrinterLib\obj\Debug\PrinterLib.dll
+D:\superchai\TmpProgramForDev\PU9\QSMS\QSMS_QTMC+20Func\QSMS20221103\C#SourceCode\QSMS_C#\PrinterLib\obj\Debug\PrinterLib.pdb
